@@ -22,7 +22,7 @@ def collect_stimuli(data_path):
     for i in range(1, 68):
         target_path = os.path.join(data_path / 'stimuli', 's_' + str(i) + '.jpg')
         filename = 's_' + str(i) + '.jpg'
-        image_id = 'stimuli_' + str(i)
+        image_id = 'klab_vs_waldo_stimuli_' + str(i)
         image_label = 'stimuli'
         sample_number = i
 
@@ -38,7 +38,7 @@ def collect_stimuli(data_path):
     for i in range(1, 68):
         target_path = os.path.join(data_path / 'target', 't_' + str(i) + '.jpg')
         filename = 't_' + str(i) + '.jpg'
-        image_id = 'target_' + str(i)
+        image_id = 'klab_vs_waldo_target_' + str(i)
         image_label = 'target'
         sample_number = i
 
@@ -53,8 +53,8 @@ def collect_stimuli(data_path):
     # target mask
     for i in range(1, 68):
         target_path = os.path.join(data_path / 'gt', 'gt_' + str(i) + '.jpg')
-        filename = 'gt' + str(i) + '.jpg'
-        image_id = 'gt_' + str(i)
+        filename = 'gt_' + str(i) + '.jpg'
+        image_id = 'klab_vs_waldo_gt_' + str(i)
         image_label = 'gt'
         sample_number = i
 

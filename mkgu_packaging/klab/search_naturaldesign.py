@@ -11,6 +11,7 @@ from sklearn.model_selection import StratifiedShuffleSplit
 from tqdm import tqdm
 from scipy.io import loadmat
 
+from brainio_collection.knownfile import KnownFile as kf
 from brainio_base.assemblies import BehavioralAssembly
 from brainio_base.stimuli import StimulusSet
 from brainio_contrib.packaging import package_stimulus_set, package_data_assembly
@@ -22,7 +23,7 @@ def collect_stimuli(data_path):
     for i in range(1, 241):
         target_path = os.path.join(data_path / 'stimuli', 's_' + str(i) + '.jpg')
         filename = 's_' + str(i) + '.jpg'
-        image_id = 'stimuli_' + str(i)
+        image_id = 'klab_vs_naturaldesign_stimuli_' + str(i)
         image_label = 'stimuli'
         sample_number = i
 
@@ -38,7 +39,7 @@ def collect_stimuli(data_path):
     for i in range(1, 241):
         target_path = os.path.join(data_path / 'target', 't_' + str(i) + '.jpg')
         filename = 't_' + str(i) + '.jpg'
-        image_id = 'target_' + str(i)
+        image_id = 'klab_vs_naturaldesign_target_' + str(i)
         image_label = 'target'
         sample_number = i
 
@@ -53,8 +54,8 @@ def collect_stimuli(data_path):
     # target mask
     for i in range(1, 241):
         target_path = os.path.join(data_path / 'gt', 'gt_' + str(i) + '.jpg')
-        filename = 'gt' + str(i) + '.jpg'
-        image_id = 'gt_' + str(i)
+        filename = 'gt_' + str(i) + '.jpg'
+        image_id = 'klab_vs_naturaldesign_gt_' + str(i)
         image_label = 'gt'
         sample_number = i
 
@@ -70,7 +71,7 @@ def collect_stimuli(data_path):
 
     stimuli.image_paths = {row.image_id: row.image_current_local_file_path for row in stimuli.itertuples()}
     stimuli['image_file_name']= stimuli['image_path_within_store']
-    
+
     return stimuli
 
 def collect_data(data_path, sub_id):
